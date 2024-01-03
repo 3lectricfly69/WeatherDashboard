@@ -1,7 +1,5 @@
-var APIkey = "a017045bc9d006d6e1cc77b052551e71";
+var apiKey = "a017045bc9d006d6e1cc77b052551e71";
 const searchForm = document.getElementById('search-form');
-const currentWeatherSection = document.getElementById('current-weather');
-const forecastSection = document.getElementById('forecast');
 const searchHistoryList = [];
 var iconURL = "http://openweathermap.org/img/w/";
 var weatherIcon = document.getElementById("weather-icon");
@@ -11,32 +9,77 @@ var humidityClassName = ".humidity";
 var windClassName = ".wind";
 $("#currentDay").text(moment().format("dddd, MMMM Do, YYYY"));
 
-// Using the 5 Day Weather Forecast API, you'll notice that you will need to pass in coordinates 
-// instead of just a city name. Using the OpenWeatherMap APIs, how could we retrieve geographical coordinates given a city name?
+function getCityByName(inputCity)
+{
+    event.preventDefault();
 
-function searchByCity (){}
-$("#submitBtn").on("click", function(event){
+    var requestURL = `http://api.openweathermap.org/geo/1.0/direct?q=${inputCity}&appid=${apiKey}`;
 
-event.preventDefault();
-
-var inputText = $("#cityName").val();
-console.log(inputText);
-var queryURLtoday = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}"
-})
-
-$(document).ready(function(e){
-    $("#searchField").on("keypress", function(e){
-    var code = (e.keyCode ? e.keyCode : e.which);
-    if(code == 13) { a017045bc9d006d6e1cc77b052551e71
-        console.log("enter press")
-        $("#searchBtn").trigger("click")
-    }
-
+    fetch(requestURL, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+        },
     })
-    $("#searchBtn").on("click", function(e){
-        e.preventDefault();
-        console.log("on submit clicked");
+    .then((response) => {
+        console.log(response);
+        response.json().then((data) => {
+            // getCityByLatLon(data[0].lat,lon)
+            console.log(data);
+            console.log(data[0]);
+            console.log(data[0].lat);
+            console.log(data[0].lon);
+        }) 
+        .catch(error => {
+            console.error(error);
+        });
+    });
+}
+function getCityByLatLon(lat, lon) {
+    // var lat = data[0].lat;
+    // var lon = data[0].lon;
+    var requestLatLonURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+    return fetch(requestLatLonURL), {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+        },
+    }  
+    .then(response => {
+        return response.json();
     })
-})
+    .then(data => {
+        console.log(data);
+    })
+}
+    // var lat = data[0].lat;
+    // var lon = data[0].lon;
+    // var requestLatLonURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+    
+    // fetch(requestLatLonURL), {
+    //     method: 'GET',
+    //     headers: {
+    //         'Accept': 'application/json',
+    //     },
+    // }
+    // .then((response) => {
+    //     console.log(response);
+    //     response.json().then((data) => {
+    //         console.log("this is firing off");
+    //         console.log(data);
+    //     });
+    // });
+    
 
-init();
+//this is how the javascript tells the html button to fire off the data fetching/displaying functions
+//the highest level invoked functionality / button practically activates page
+//search
+    $(document).on("click", "#submit", function (event) 
+{
+    var searchedCity = $("#search").val();
+    console.log("hey console log is getting triggered by button");
+    console.log(searchedCity);
+            getCityByName(searchedCity);
+    $("#search").val("");
+    event.preventDefault();
+});
