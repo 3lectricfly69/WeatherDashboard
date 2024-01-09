@@ -77,12 +77,24 @@ body {
     background-color: #4fab98;
     color:#e4ebe9;
     height: 200px;
-    width: 25%;
+    width: 90%;
     margin-left: 0%;
     display:block;
     border-radius: 25px 25px 25px 25px;
     box-shadow: inherit;
     box-shadow: 5px 5px 5px 5px #4fab98;
+    margin-top: 10px;
+}
+
+#day0{
+    margin-left: 37.5%;
+    width: 25%;
+    margin-top: 20px;
+}
+
+.fiveDayGrid{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
 }
 
 .fiveDay{
@@ -99,11 +111,12 @@ body {
     opacity: .9;
     border-radius: 25px 25px 25px 25px;
     box-shadow: 5px 5px 5px 5px #4fab98;
-    margin-bottom: 0%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #searchH {
     text-align: center;
     width: 100%;
-    color: #e4ebe9
+    color: #e4ebe9;
 }

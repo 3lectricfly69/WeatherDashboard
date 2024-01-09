@@ -1,45 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
     <title>Weather Dashboard</title>
-    
 </head>
 <body>
     <navbar class="navBar">
-        <p>Weather Dashboard</p>
-        <div id="currentDay" class="text-center"> </div>
-        <div id="now" class="text-center"></div>
-        <div id="searchForm">
-                <input id="search" type = "text" class = "input" placeholder = "Search location by city name, city ID, or zip-code here:"/>
-                <button id="submit" class = "submitButton" click = "searchByCity()">submit</button>
-        </div>
+    <p>Weather Dashboard</p>
+    <div id="currentDay" class="text-center"></div>
+    <div id="now" class="text-center"></div>
+    <div id="searchForm">
+        <input
+        id="search"
+        type="text"
+        class="input"
+        placeholder="Search location by city name, city ID, or zip-code here:"
+        />
+        <button id="submit" class="submitButton" click="searchByCity()">
+        submit
+        </button>
+    </div>
     </navbar>
 
-<div class = "results-container">
-<ul class = "results-list" id = "list">
-</ul>
+    <div class="results-container">
+    <ul class="results-list" id="list"></ul>
+    </div>
+
+<div class="day0Grid">
+    <div id="day0" class="todaysWeather">
+    <div class="cityName">City Name</div>
+    <div class="date"></div>
+    <img class="icon">
+    <div class="tempF"></div>
+    <div class="description"></div>
+    <div class="humidity"></div>
+    <div class="windSpeed"></div>
+    </div>
+</div>
+    <div class="fiveDayGrid">
+    <div id="day1" class="todaysWeather">
+        <div class="cityName">City Name</div>
+        <div class="date1"></div>
+        <img class="icon1">
+        <div class="tempF1"></div>
+        <div class="description1"></div>
+        <div class="humidity1"></div>
+        <div class="windSpeed1"></div>
+    </div>
+
+    <div id="day2" class="todaysWeather">
+        <div class="cityName">City Name</div>
+        <div class="date2"></div>
+        <img class="icon2">
+        <div class="tempF2"></div>
+        <div class="description2"></div>
+        <div class="humidity2"></div>
+        <div class="windSpeed2"></div>
+    </div>
+
+    <div id="day3" class="todaysWeather">
+        <div class="cityName">City Name</div>
+        <div class="date3"></div>
+        <img class="icon3">
+        <div class="tempF3"></div>
+        <div class="description3"></div>
+        <div class="humidity3"></div>
+        <div class="windSpeed3"></div>
+    </div>
+
+    <div id="day4" class="todaysWeather">
+        <div class="cityName">City Name</div>
+        <div class="date4"></div>
+        <img class="icon4">
+        <div class="tempF4"></div>
+        <div class="description4"></div>
+        <div class="humidity4"></div>
+        <div class="windSpeed4"></div>
+    </div>
+
+    <div id="day5" class="todaysWeather">
+        <div class="cityName">City Name</div>
+        <div class="date5"></div>
+        <img class="icon5">
+        <div class="tempF5"></div>
+        <div class="description5"></div>
+        <div class="humidity5"></div>
+        <div class="windSpeed5"></div>
+    </div>
 </div>
 
-<div class = "todaysWeather">
-        <div class = "cityName">City Name</div>
-        <div class = "date"></div>
-        <div class = "weatherIcon"></div>
-        <div class = "tempF"></div>
-        <div class = "humidity"></div>
-        <div class = "windSpeed"></div>
-</div>
-
-<div class="history">
-    <h2 id="searchH" >Search History</h2>
+    <div class="history">
+    <h2 id="searchH">Search History</h2>
     <ul id="search-history"></ul>
-</div>
+    </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-<object properties -- cityName, date, temperature, humidity, and windSpeed></object>
