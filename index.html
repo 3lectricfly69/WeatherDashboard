@@ -16,7 +16,7 @@
         id="search"
         type="text"
         class="input"
-        placeholder="Search location by city name, city ID, or zip-code here:"
+        placeholder="Search location by city name:"
         />
         <button id="submit" class="submitButton" click="searchByCity()">
         submit
@@ -30,7 +30,7 @@
 
 <div class="day0Grid">
     <div id="day0" class="todaysWeather">
-    <div class="cityName">City Name</div>
+    <div class="cityName"></div>
     <div class="date"></div>
     <img class="icon">
     <div class="tempF"></div>
@@ -41,7 +41,7 @@
 </div>
     <div class="fiveDayGrid">
     <div id="day1" class="todaysWeather">
-        <div class="cityName">City Name</div>
+        <div class="cityName"></div>
         <div class="date1"></div>
         <img class="icon1">
         <div class="tempF1"></div>
@@ -51,7 +51,7 @@
     </div>
 
     <div id="day2" class="todaysWeather">
-        <div class="cityName">City Name</div>
+        <div class="cityName"></div>
         <div class="date2"></div>
         <img class="icon2">
         <div class="tempF2"></div>
@@ -61,7 +61,7 @@
     </div>
 
     <div id="day3" class="todaysWeather">
-        <div class="cityName">City Name</div>
+        <div class="cityName"></div>
         <div class="date3"></div>
         <img class="icon3">
         <div class="tempF3"></div>
@@ -71,7 +71,7 @@
     </div>
 
     <div id="day4" class="todaysWeather">
-        <div class="cityName">City Name</div>
+        <div class="cityName"></div>
         <div class="date4"></div>
         <img class="icon4">
         <div class="tempF4"></div>
@@ -81,7 +81,7 @@
     </div>
 
     <div id="day5" class="todaysWeather">
-        <div class="cityName">City Name</div>
+        <div class="cityName"></div>
         <div class="date5"></div>
         <img class="icon5">
         <div class="tempF5"></div>
@@ -90,10 +90,15 @@
         <div class="windSpeed5"></div>
     </div>
 </div>
-
     <div class="history">
     <h2 id="searchH">Search History</h2>
     <ul id="search-history"></ul>
+        <!--Searched City List -->
+        <p><h6 id="recent-cities"></h6></p>
+        <!-- added ul with class to remove unordered list style from button -->
+        <ul class="is-hidden" style='list-style:none' id="historyList">
+        </ul>
+        <button type="button" id="clear-history">Clear History</button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -36,9 +36,9 @@ function getCityByName(inputCity)
     });
 }
 
-let searching = browser.history.search(
-    searchHistoryList
-)
+// let searching = browser.history.search(
+//     searchHistoryList
+// )
 
 function getCityByLatLon(lat, lon) {
     // var lat = data[0].lat;
@@ -62,39 +62,39 @@ function getCityByLatLon(lat, lon) {
         document.querySelector(".cityName").textContent = data.city.name;
         // document.querySelector(".date").textContent = data.list[0].date;
         
-        document.querySelector(".tempF").textContent = convertKelvinToFahrenheit(data.list[0].main.temp);
-        document.querySelector(".humidity").innerHTML = data.list[0].main.humidity;
-        document.querySelector(".windSpeed").innerHTML = data.list[0].wind.speed;
+        document.querySelector(".tempF").textContent = convertKelvinToFahrenheit(data.list[0].main.temp) + "°F";
+        document.querySelector(".humidity").innerHTML = "humidity: " + data.list[0].main.humidity + "%";
+        document.querySelector(".windSpeed").innerHTML =  "wind-speed: " + data.list[0].wind.speed + " mph";
         document.querySelector(".description").innerHTML = data.list[0].weather[0].description;
         document.querySelector('.icon').src = "http://openweathermap.org/img/wn/"+ data.list[0].weather[0].icon +".png";
 
-        document.querySelector(".tempF1").textContent = convertKelvinToFahrenheit(data.list[1].main.temp);
-        document.querySelector(".humidity1").innerHTML = data.list[1].main.humidity;
-        document.querySelector(".windSpeed1").innerHTML = data.list[1].wind.speed;
+        document.querySelector(".tempF1").textContent = convertKelvinToFahrenheit(data.list[1].main.temp) + "°F";
+        document.querySelector(".humidity1").innerHTML = "humidity: " + data.list[1].main.humidity + "%";
+        document.querySelector(".windSpeed1").innerHTML = "wind-speed: " + data.list[1].wind.speed + " mph";
         document.querySelector(".description1").innerHTML = data.list[1].weather[0].description;
         document.querySelector('.icon1').src = "http://openweathermap.org/img/wn/"+ data.list[1].weather[0].icon +".png";
 
-        document.querySelector(".tempF2").textContent = convertKelvinToFahrenheit(data.list[2].main.temp);
-        document.querySelector(".humidity2").innerHTML = data.list[2].main.humidity;
-        document.querySelector(".windSpeed2").innerHTML = data.list[2].wind.speed;
+        document.querySelector(".tempF2").textContent = convertKelvinToFahrenheit(data.list[2].main.temp) + "°F";
+        document.querySelector(".humidity2").innerHTML = "humidity: " + data.list[2].main.humidity + "%";
+        document.querySelector(".windSpeed2").innerHTML = "wind-speed: " + data.list[2].wind.speed + " mph";
         document.querySelector(".description2").innerHTML = data.list[2].weather[0].description;
         document.querySelector('.icon2').src = "http://openweathermap.org/img/wn/"+ data.list[2].weather[0].icon +".png";
 
-        document.querySelector(".tempF3").textContent = convertKelvinToFahrenheit(data.list[3].main.temp);
-        document.querySelector(".humidity3").innerHTML = data.list[3].main.humidity;
-        document.querySelector(".windSpeed3").innerHTML = data.list[3].wind.speed;
+        document.querySelector(".tempF3").textContent = convertKelvinToFahrenheit(data.list[3].main.temp) + "°F";
+        document.querySelector(".humidity3").innerHTML = "humidity: " + data.list[3].main.humidity + "%";
+        document.querySelector(".windSpeed3").innerHTML = "wind-speed: " + data.list[3].wind.speed + " mph";
         document.querySelector(".description3").innerHTML = data.list[3].weather[0].description;
         document.querySelector('.icon3').src = "http://openweathermap.org/img/wn/"+ data.list[3].weather[0].icon +".png";
 
-        document.querySelector(".tempF4").textContent = convertKelvinToFahrenheit(data.list[4].main.temp);
-        document.querySelector(".humidity4").innerHTML = data.list[4].main.humidity;
-        document.querySelector(".windSpeed4").innerHTML = data.list[4].wind.speed;
+        document.querySelector(".tempF4").textContent = convertKelvinToFahrenheit(data.list[4].main.temp) + "°F";
+        document.querySelector(".humidity4").innerHTML = "humidity: " + data.list[4].main.humidity + "%";
+        document.querySelector(".windSpeed4").innerHTML = "wind-speed: " + data.list[4].wind.speed + " mph";
         document.querySelector(".description4").innerHTML = data.list[4].weather[0].description;
         document.querySelector('.icon4').src = "http://openweathermap.org/img/wn/"+ data.list[4].weather[0].icon +".png";
 
-        document.querySelector(".tempF5").textContent = convertKelvinToFahrenheit(data.list[5].main.temp);
-        document.querySelector(".humidity5").innerHTML = data.list[5].main.humidity;
-        document.querySelector(".windSpeed5").innerHTML = data.list[5].wind.speed;
+        document.querySelector(".tempF5").textContent = convertKelvinToFahrenheit(data.list[5].main.temp) + "°F";
+        document.querySelector(".humidity5").innerHTML = "humidity: " + data.list[5].main.humidity + "%";
+        document.querySelector(".windSpeed5").innerHTML = "wind-speed: " + data.list[5].wind.speed + " mph";
         document.querySelector(".description5").innerHTML = data.list[5].weather[0].description;
         document.querySelector('.icon5').src = "http://openweathermap.org/img/wn/"+ data.list[5].weather[0].icon +".png";
 
@@ -102,30 +102,36 @@ function getCityByLatLon(lat, lon) {
 }
 function convertKelvinToFahrenheit(valNum) 
 {
-    return (((valNum - 273.15) * 1.8) + 32);
+    return (((Math.round(valNum - 273.15) * 1.8) + 32));
 }
-    // var lat = data[0].lat;
-    // var lon = data[0].lon;
-    // var requestLatLonURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-    
-    // fetch(requestLatLonURL), {
-    //     method: 'GET',
-    //     headers: {
-    //         'Accept': 'application/json',
-    //     },
-    // }
-    // .then((response) => {
-    //     console.log(response);
-    //     response.json().then((data) => {
-    //         console.log("this is firing off");
-    //         console.log(data);
-    //     });
-    // });
-    
 
 //this is how the javascript tells the html button to fire off the data fetching/displaying functions
-//the highest level invoked functionality / button practically activates page
-//search
+//the highest level invoked functionality 
+//Kick off the search
+$(document).on("click", "#searchbtn", function (event) //******** 
+{//******** 
+    //assigning the value of the search input to a variable
+    var searchedCity = $("#city").val(); //******** 
+    //if they hit the submit button without entering a city into the input field, it alerts the user
+    if (searchedCity == "")
+    {
+        alert("Enter a valid city");
+    }
+    //otherwise, save the searched city to the local storage to be retrieved upon load
+    //and use the api call function with city name to get the weather
+    else
+    {
+        getLatitudeAndLongitude(searchedCity); //******** 
+        //checkLocalStorage() 
+    }
+    //resets search input field to empty so another search can be performed
+    $("#city").val(""); //******** 
+    event.preventDefault(); //******** 
+});//******** 
+
+// this is how the javascript tells the html button to fire off the data fetching/displaying functions
+// the highest level invoked functionality / button practically activates page
+// search
     $(document).on("click", "#submit", function (event) 
 {
     var searchedCity = $("#search").val();
