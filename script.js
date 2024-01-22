@@ -111,33 +111,22 @@ function convertKelvinToFahrenheit(valNum)
     return (((Math.round(valNum - 273.15) * 1.8) + 32));
 }
 
-//this is how the javascript tells the html button to fire off the data fetching/displaying functions
-//the highest level invoked functionality 
-//Kick off the search
-$(document).on("click", "#searchbtn", function (event) //******** 
-{//******** 
-    //assigning the value of the search input to a variable
-    var searchedCity = $("#city").val(); //******** 
-    //if they hit the submit button without entering a city into the input field, it alerts the user
+$(document).on("click", "#search", function (event)
+{
+    var searchedCity = $("#cityName").val();
     if (searchedCity == "")
     {
         alert("Enter a valid city");
     }
-    //otherwise, save the searched city to the local storage to be retrieved upon load
-    //and use the api call function with city name to get the weather
     else
     {
-        getLatitudeAndLongitude(searchedCity); //******** 
-        //checkLocalStorage() 
+        getLatitudeAndLongitude(searchedCity);
     }
-    //resets search input field to empty so another search can be performed
-    $("#city").val(""); //******** 
-    event.preventDefault(); //******** 
-});//******** 
 
-// this is how the javascript tells the html button to fire off the data fetching/displaying functions
-// the highest level invoked functionality / button practically activates page
-// search
+    $("#cityName").val("");
+    event.preventDefault();
+});
+
     $(document).on("click", "#submit", function (event) 
 {
     var searchedCity = $("#search").val();
