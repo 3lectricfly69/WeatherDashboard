@@ -1,7 +1,7 @@
 var apiKey = "a017045bc9d006d6e1cc77b052551e71";
 const searchForm = document.getElementById('search-form');
 const searchHistoryList = [];
-var iconURL = "http://openweathermap.org/img/w/";
+var iconURL = "https://openweathermap.org/img/w/";
 var weatherIcon = document.getElementById("weather-icon");
 var cityClassName = ".city";
 var tempClassName = ".temperature";
@@ -13,7 +13,7 @@ function getCityByName(inputCity)
 {
     event.preventDefault();
 
-    var requestURL = `http://api.openweathermap.org/geo/1.0/direct?q=${inputCity}&appid=${apiKey}`;
+    var requestURL = `https://api.openweathermap.org/geo/1.0/direct?q=${inputCity}&appid=${apiKey}`;
 
     fetch(requestURL, {
         method: 'GET',
@@ -66,7 +66,7 @@ function getCityByLatLon(lat, lon) {
         document.querySelector(".humidity").innerHTML = "humidity: " + data.list[0].main.humidity + "%";
         document.querySelector(".windSpeed").innerHTML =  "wind-speed: " + data.list[0].wind.speed + " mph";
         document.querySelector(".description").innerHTML = data.list[0].weather[0].description;
-        document.querySelector('.icon').src = "http://openweathermap.org/img/wn/"+ data.list[0].weather[0].icon +".png";
+        document.querySelector('.icon').src = "https://openweathermap.org/img/wn/"+ data.list[0].weather[0].icon +".png";
         document.querySelector(".date").innerHTML = "" + moment().format("dddd, MMMM Do, YYYY");
 
 
@@ -74,35 +74,35 @@ function getCityByLatLon(lat, lon) {
         document.querySelector(".humidity1").innerHTML = "humidity: " + data.list[1].main.humidity + "%";
         document.querySelector(".windSpeed1").innerHTML = "wind-speed: " + data.list[1].wind.speed + " mph";
         document.querySelector(".description1").innerHTML = data.list[1].weather[0].description;
-        document.querySelector('.icon1').src = "http://openweathermap.org/img/wn/"+ data.list[1].weather[0].icon +".png";
+        document.querySelector('.icon1').src = "https://openweathermap.org/img/wn/"+ data.list[1].weather[0].icon +".png";
         document.querySelector(".date1").innerHTML = "" + moment().add(1,'days').format("dddd, MMMM Do");
 
         document.querySelector(".tempF2").textContent = convertKelvinToFahrenheit(data.list[2].main.temp) + "°F";
         document.querySelector(".humidity2").innerHTML = "humidity: " + data.list[2].main.humidity + "%";
         document.querySelector(".windSpeed2").innerHTML = "wind-speed: " + data.list[2].wind.speed + " mph";
         document.querySelector(".description2").innerHTML = data.list[2].weather[0].description;
-        document.querySelector('.icon2').src = "http://openweathermap.org/img/wn/"+ data.list[2].weather[0].icon +".png";
+        document.querySelector('.icon2').src = "https://openweathermap.org/img/wn/"+ data.list[2].weather[0].icon +".png";
         document.querySelector(".date2").innerHTML = "" + moment().add(2,'days').format("dddd, MMMM Do");
 
         document.querySelector(".tempF3").textContent = convertKelvinToFahrenheit(data.list[3].main.temp) + "°F";
         document.querySelector(".humidity3").innerHTML = "humidity: " + data.list[3].main.humidity + "%";
         document.querySelector(".windSpeed3").innerHTML = "wind-speed: " + data.list[3].wind.speed + " mph";
         document.querySelector(".description3").innerHTML = data.list[3].weather[0].description;
-        document.querySelector('.icon3').src = "http://openweathermap.org/img/wn/"+ data.list[3].weather[0].icon +".png";
+        document.querySelector('.icon3').src = "https://openweathermap.org/img/wn/"+ data.list[3].weather[0].icon +".png";
         document.querySelector(".date3").innerHTML = "" + moment().add(3,'days').format("dddd, MMMM Do");
 
         document.querySelector(".tempF4").textContent = convertKelvinToFahrenheit(data.list[4].main.temp) + "°F";
         document.querySelector(".humidity4").innerHTML = "humidity: " + data.list[4].main.humidity + "%";
         document.querySelector(".windSpeed4").innerHTML = "wind-speed: " + data.list[4].wind.speed + " mph";
         document.querySelector(".description4").innerHTML = data.list[4].weather[0].description;
-        document.querySelector('.icon4').src = "http://openweathermap.org/img/wn/"+ data.list[4].weather[0].icon +".png";
+        document.querySelector('.icon4').src = "https://openweathermap.org/img/wn/"+ data.list[4].weather[0].icon +".png";
         document.querySelector(".date4").innerHTML = "" + moment().add(4,'days').format("dddd, MMMM Do");
 
         document.querySelector(".tempF5").textContent = convertKelvinToFahrenheit(data.list[5].main.temp) + "°F";
         document.querySelector(".humidity5").innerHTML = "humidity: " + data.list[5].main.humidity + "%";
         document.querySelector(".windSpeed5").innerHTML = "wind-speed: " + data.list[5].wind.speed + " mph";
         document.querySelector(".description5").innerHTML = data.list[5].weather[0].description;
-        document.querySelector('.icon5').src = "http://openweathermap.org/img/wn/"+ data.list[5].weather[0].icon +".png";
+        document.querySelector('.icon5').src = "https://openweathermap.org/img/wn/"+ data.list[5].weather[0].icon +".png";
         document.querySelector(".date5").innerHTML = "" + moment().add(5,'days').format("dddd, MMMM Do");
     })
 }
@@ -120,7 +120,7 @@ $(document).on("click", "#search", function (event)
     }
     else
     {
-        getLatitudeAndLongitude(searchedCity);
+        getCityByName(searchedCity);
     }
 
     $("#cityName").val("");
